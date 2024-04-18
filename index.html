@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithmic Strategies</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Load MathJax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js" integrity="sha384-rYnpz8+0RMoF+wUD3FQldPyM7Yr3xX8Y2al9DNEegitZ6OJwwID8ef1zJMX45x97" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="content">
+        <h1>Algorithmic Strategies</h1>
+        
+        <h2>Coin Change Making Problem</h2>
+        <p>We have coins of the following denominations: \(\{1, 2, 4, 8, \ldots, 2^i, 2^n\}\).</p>
+        <p>The goal is to make change for an amount \(A\) greater than \(2^n\) using the least number of coins.</p>
+        <p><strong>Claim:</strong> To optimize, it makes sense to take as many \(2^n\) coins as possible.</p>
+        <p><strong>Proof:</strong> Assume the "optimal solution" has \(C_0\) coins of 1, \(C_1\) coins of 2, \ldots, \(C_i\) coins of \(2^i\), such that:
+        \[
+        C_0 \cdot 1 + C_1 \cdot 2 + C_2 \cdot 4 + \ldots + C_n \cdot 2^n = A
+        \]
+        Since we did not take as many \(2^n\) coins as possible, we have:
+        \[
+        A - C_n \cdot 2^n \geq 2^n
+        \]
+        Hence, 
+        \[
+        C_0 + C_1 \cdot 2 + C_2 \cdot 4 + \ldots + C_{n-1} \cdot 2^{n-1} \geq 2^n
+        \]
+        By lemma, if this solution is optimal, none of these \(C_0, C_1, \ldots, C_{n-1}\) can be 2 or larger because 2 coins of \(2^i\) can be replaced by just 1 coin of \(2^{i+1}\). The sum of lower denominations is \(2^n - 1\), which defies the above inequality. Thus, a solution that does not use as many \(2^n\) coins as possible cannot be optimal.</p>
+        
+        <h2>Minimum Spanning Tree (MST)</h2>
+        <p>Given: An undirected weighted connected graph where vertices represent islands and edges represent proposed bridges.</p>
+        <p>Goal: Find a spanning tree of minimum total weight in this graph, ensuring that:
+        <ul>
+            <li>You have paths between all island pairs.</li>
+            <li>The total construction cost is minimized.</li>
+        </ul>
+        </p>
+        <p><strong>Claim:</strong> We will not ever make cycles in our construction. The minimum cost will be obtained by picking a subset of edges that make a tree and include every vertex, thus forming a spanning tree.</p>
+    </div>
+</body>
+</html>
