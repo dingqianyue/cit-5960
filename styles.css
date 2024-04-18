@@ -1,27 +1,31 @@
-body {
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
-    margin: 0;
-    padding: 20px;
     color: #333;
 }
 
 .content {
-    background-color: #fff;
+    min-height: 100vh;
+    width: calc(100% - 40px);
     padding: 20px;
     margin: auto;
-    max-width: 800px;
-    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+h1, h2 {
+    color: #2c3e50;
 }
 
 h1 {
-    color: #2c3e50;
     text-align: center;
 }
 
 h2 {
-    color: #34495e;
     border-bottom: 2px solid #ecf0f1;
     padding-bottom: 5px;
 }
