@@ -19,21 +19,26 @@
 
         <p>The 0/1 Knapsack problem is classified as NP-Complete. It operates in pseudo-polynomial time O(nW), where its complexity becomes exponential when inputs are binary. The dynamic programming solution is linear in the value of W, but exponential in the length of W.</p>
 
-        <h3>Recitation 12: Review Questions</h3>
+        <h2>Recitation 12</h3>
         <h4>Question 1</h4>
         <ol>
-            <li><strong>If the edge weights are all distinct, Prim’s and Kruskal’s algorithm will give the same minimum spanning tree.</strong> True. There is one unique MST in this situation.</li>
-            <li><strong>Given an undirected weighted connected graph and a vertex s as source, the pred array at the end of Dijkstra’s algorithm running from s and the pred array at the end of Prim’s algorithm that is run starting from s are guaranteed to be the same.</strong> False. Prim’s selects minimum weights for individual edges, which can result in different pred vertices.</li>
+            <li><strong>If the edge weights are all distinct, Prim’s and Kruskal’s algorithm will give the same minimum spanning tree.</strong></li>
+                <p>True. There is one unique MST in this situation.</p>
+            <li><strong>Given an undirected weighted connected graph and a vertex s as source, the pred array at the end of Dijkstra’s algorithm running from s and the pred array at the end of Prim’s algorithm that is run starting from s are guaranteed to be the same.</strong></li>
+                <p>False. Prim’s selects minimum weights for individual edges, which can result in different pred vertices.</p>
         </ol>
 
         <h4>Question 2</h4>
         <p>Run Prim’s algorithm on the graph starting at vertex A.</p>
 
-        <h4>Question 3: Review</h4>
+        <h4>Question 3</h4>
         <ul>
-            <li>Finding the edit distance between two strings is a problem that is in P (True, O(mn)).</li>
-            <li>If a problem is solvable using dynamic programming, it is definitely in P (False. Example: 0/1 Knapsack is not in polynomial time, O(n * W) = O(2^k)).</li>
-            <li>To prove a problem is in P, we need to come up with the most efficient algorithm to solve the problem (False. As long as it’s polynomial time, it’s considered in P).</li>
+            <li>Finding the edit distance between two strings is a problem that is in P.</li>
+                <p>True. O(mn).</p>
+            <li>If a problem is solvable using dynamic programming, it is definitely in P.</li>
+                <p>False. Example: 0/1 Knapsack is not in polynomial time, O(n * W) = O(2^k)).</p>
+            <li>To prove a problem is in P, we need to come up with the most efficient algorithm to solve the problem.</li>
+                <p>False. As long as it’s polynomial time, it’s considered in P.</p>
         </ul>
     </div>
 </body>
