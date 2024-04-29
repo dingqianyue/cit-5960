@@ -52,6 +52,49 @@
         </ul>
         </p>
         <p><strong>Claim:</strong> We will not ever make cycles in our construction. The minimum cost will be obtained by picking a subset of edges that make a tree and include every vertex, thus forming a spanning tree.</p>
+        <p>
+            P vs NP Problems
+
+Polynomial-time (P) Problems
+P - solution of the problem can be found in polynomial time (there exists a solution)
+examples: sorting, searching, shortest path algorithms.
+
+Nondeterministic Polynomial-time (NP) Problems
+example: prime factorization - can verify a factor of an integer in polynomial time, but do not know any polynomial time algorithm to factorize a given integer.
+
+
+P is a subset of NP
+
+0/1 Knapsack is a NP-Complete problem — pseudo-polynomial time
+When the inputs are binary, its complexity becomes exponential
+O(nW) is pseudo-polynomial.
+The dynamic programming solution is linear in the value of W, but exponential in the length of W
+
+
+Recitation 12
+Question 1
+1. If the edge weights are all distinct, Prim’s and Kruskal’s algorithm will give the same minimum spanning tree.
+Answer: True. There is one unique MST in this situation.
+(If all edge weights are distinct, there is one unique MST)
+2. Given an undirected weighted connected graph and a vertex s as source, the pred array at the end of Dijkstra’s algorithm running from s and the pred array at the end of Prim’s algorithm that is run starting from s are guaranteed to be the same.
+Answer: False. (If the total weights from s to a vertex v is greater than the other shorter path, the pred vertex is different. Prim’s just picks the minimum weights for individual edges.)
+
+Question 2
+Run Prim’s algorithm on the following graph starting at vertex A
+
+Question 3
+Review
+P — can provide an answer in polynomial time
+NP — can verify answer in polynomial time
+P is a subset of NP
+1. Finding the edit distance between two strings is a problem that is in P.
+Answer: True. O(mn).
+
+2. If a problem is solvable using dynamic programming, it is definitely in P.
+Answer: False. 0/1 Knapsack is not in polynomial time. O(n * W) = O(O * 2^k)
+3. To prove a problem is in P we need to come up with the most efficient algorithm to solve the problem.
+Answer: False. As long as it’s polynomial time, it’s fine and it’s in P.
+        </p>
     </div>
 </body>
 </html>
