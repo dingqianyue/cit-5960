@@ -4,10 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minimum Spanning Tree</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Ensure styles.css is correctly linked -->
 </head>
 <body>
-    <h2>Minimum Spanning Tree</h2>
-    <p>A minimum spanning tree (MST) is a subset of the edges of a connected, edge-weighted undirected graph that connects all the vertices together, without any cycles and with the minimum possible total edge weight.</p>
-    <p>Common algorithms for finding a MST include Kruskal's Algorithm and Prim's Algorithm.</p>
+    <div class="content"> <!-- This div will ensure that your content is styled by styles.css -->
+        <h1>Algorithmic Concepts in Graph Theory</h1>
+        <h2>Minimum Spanning Tree (MST)</h2>
+        <p>Given: An undirected weighted connected graph where vertices represent islands and edges represent proposed bridges.</p>
+        <p>Goal: Find a spanning tree of minimum total weight in this graph, ensuring that:</p>
+        <ul>
+            <li>You have paths between all island pairs.</li>
+            <li>The total construction cost is minimized.</li>
+        </ul>
+        <p><strong>Claim:</strong> We will not ever make cycles in our construction. The minimum cost will be obtained by picking a subset of edges that make a tree and include every vertex, thus forming a spanning tree.</p>
+    </div>
 </body>
 </html>
