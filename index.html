@@ -49,16 +49,6 @@
         C_0 + C_1 \cdot 2 + C_2 \cdot 4 + \ldots + C_{n-1} \cdot 2^{n-1} \geq 2^n
         \]
         By lemma, if this solution is optimal, none of these \( C_0, C_1, \ldots, C_{n-1} \) can be 2 or larger because 2 coins of \( 2^i \) can be replaced by just 1 coin of \( 2^{i+1} \). The sum of lower denominations is \( 2^n - 1 \), which defies the above inequality. Thus, a solution that does not use as many \( 2^n \) coins as possible cannot be optimal.</p>
-        
-        <h2>Minimum Spanning Tree (MST)</h2>
-        <p>Given: An undirected weighted connected graph where vertices represent islands and edges represent proposed bridges.</p>
-        <p>Goal: Find a spanning tree of minimum total weight in this graph, ensuring that:
-        <ul>
-            <li>You have paths between all island pairs.</li>
-            <li>The total construction cost is minimized.</li>
-        </ul>
-        </p>
-        <p><strong>Claim:</strong> We will not ever make cycles in our construction. The minimum cost will be obtained by picking a subset of edges that make a tree and include every vertex, thus forming a spanning tree.</p>
     </div>
 </body>
 </html>
