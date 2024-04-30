@@ -40,6 +40,46 @@
             <li>To prove a problem is in P, we need to come up with the most efficient algorithm to solve the problem.</li>
                 <p>False. As long as it’s polynomial time, it’s considered in P.</p>
         </ul>
+
+        <h3>Last Lecture! Tuesday, April 30, 2024</h3>
+        <p>P - class of problems with O(polynomial) with respect to input size</p>
+        <h4>Input size conventions</h4>
+        <p>Array — length</p>
+        <p>Graph — # of vertices, # of edges</p>
+        <p>String — # of chars</p>
+        <p>***Single num — log(number)***</p>
+        <p>NP</p>
+        <p>NP-Hard</p>
+        <p>NP-Complete</p>
+        
+        <p>We know O(nW) algorithm for 0/1 knapsack does not make this problem in P.</p>
+        <h4>Decision Problem</h4>
+        <p>A problem that has a yes/no output</p>
+        <p>e.g. Hamiltonian path problem</p>
+        <p>Given a graph undirected, does this graph have a Hamiltonian path (path containing all vertices)?</p>
+
+        <h4>Optimization Problems</h4>
+        <p>Problems where goal is to maximize/minimize</p>
+        <p>e.g. shortest path, edit distance, 0/1 knapsack</p>
+
+        <p>Note - if we can solve decision problems, we can often use those solutions to solve the optimization version</p>
+        <p>Consider decision version of 0/1 knapsack</p>
+        <p>Inputs: given capacity W knapsack</p>
+        <p>item</p>
+        <p>weight</p>
+        <p>value</p>
+
+        <p>Decision version asks can we get a value >= V by filling above knapsack</p>
+        <h4>Question: Does solving 0/1 decision help to solve optimization version?</h4>
+        <p>0, 1, 2, ..., K (first no)</p>
+        <p>Binary search</p>
+        <p>min 0 or 1</p>
+        <p>max sum of all values</p>
+
+        <h4>NP - defind for decision problems in the following manner</h4>
+        <p>Given a YES instance of the decision problem and a certificate of this YES instance, the certificate can be *verified* in polynomial manner.</p>
+        <p>(A certificate is a string that certifies the answer to a computation.)</p>
+
     </div>
 </body>
 </html>
