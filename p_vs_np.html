@@ -36,12 +36,12 @@
             <li>Finding the edit distance between two strings is a problem that is in P.</li>
                 <p>True. O(mn).</p>
             <li>If a problem is solvable using dynamic programming, it is definitely in P.</li>
-                <p>False. Example: 0/1 Knapsack is not in polynomial time, O(n * W) = O(2^k)).</p>
+                <p>False. Example: 0/1 Knapsack is not in polynomial time, O(n * W) = O(n * 2^k)).</p>
             <li>To prove a problem is in P, we need to come up with the most efficient algorithm to solve the problem.</li>
                 <p>False. As long as it’s polynomial time, it’s considered in P.</p>
         </ul>
 
-        <h3>Last Lecture! Tuesday, April 30, 2024</h3>
+        <h2>Last Lecture! Tuesday, April 30, 2024</h2>
         <p>P - class of problems with O(polynomial) with respect to input size</p>
         <h4>Input size conventions</h4>
         <p>Array — length</p>
@@ -76,10 +76,50 @@
         <p>min 0 or 1</p>
         <p>max sum of all values</p>
 
-        <h4>NP - defind for decision problems in the following manner</h4>
+        <h4>NP - defined for decision problems in the following manner</h4>
         <p>Given a YES instance of the decision problem and a certificate of this YES instance, the certificate can be *verified* in polynomial manner.</p>
         <p>(A certificate is a string that certifies the answer to a computation.)</p>
+        <h4>DO NOT TRY TO SOLVE AN NP PROBLEM IN EXAM</h4>
 
+        <h4>Question: Show Hamiltonian path problem is an element of NP</h4>
+        <p>Assume we have a graph where there is some Hamiltonian path. Now we are given a certificate of this path as some order of vertices say v1, v2, ..., vn</p>
+        <p>Now to check that this is a Hamiltonian path</p>
+        <li>Check that it has all vertices. Runtime - even a silly algo O(n^2)</li>
+        <li>Check if (v1, v2) is an edge, check if (v2, v3) is  an edge etc. </li>
+        <p>Runtime: In adj matrix check (v1, v2) edge is O(1) time.</p>
+        <p>In adj list check the whole thing takes O(n+m).</p>
+
+        <h4>Question: Show decision version of 0/1 knapsack is in NP</h4>
+        <p>input - W</p>
+        <p>(wi, vi) - weights, values of items</p>
+        <p>V</p>
+        <p>Can we get at least value V</p>
+        <p>Certificate - list of items that were picked to put in bag</p>
+        <p>Verficiation - check that items do not exceed cap</p>
+        <p>Sum up values. Check >= V</p>
+        <p>Claim both checks are polynomial time</p>
+
+        <p>Note - problems like 0/1 knapsack are NOT unsolved</p>
+        <p>How many subsets of a set 2^n</p>
+
+        <h4>P vs NP</h4>
+        <p>Result: we know P is a subset of NP</p>
+        <p>Intuition - if you can solve something in polynomial time, then verification in polynomial time is easy.</p>
+
+        <p>We don't know if NP is a subset of P. This is unsolved.</p>
+            <li>To show NP is not a subset of P what do we need to do?</li>
+        <p>We would need to show some NP problem can NEVER be solved in polynomial time (near impossible...)</p>
+        <li>To show NP is a subset of P, we would need to show every NP problem can be solved in polynomial time</li>
+
+        <h4>NP-Hard Problems</h4>
+        <p>A problem Q is an NP-Hard problem iff (if and only if) all NP problems can be solved if this problem Q can be solved formally - all NP problem "reduced to" Q.</p>
+        <p>(A problem P is NP-Hard if for every problem L in NP, there is a polynomial-time reduction from L to P. This means that if an efficient (polynomial-time) algorithm exists for solving P, then an efficient algorithm can be derived for solving every problem in NP.)</p>
+        <h4>Reduction</h4>
+        <p>subset sum - S = {a1, a2, ..., an} (can be solved by dynamic programming)</p>
+        <p>target t</p>
+        <p>Question: does there exist a subset sums up to t</p>
+        <p>Question: Give nset S, does there exist a subset that sums up to exactly half the total summation of S, i.e. can we divide S into 2 equal partitions?</p>
+        
     </div>
 </body>
 </html>
