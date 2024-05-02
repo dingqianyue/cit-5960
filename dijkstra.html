@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dijkstra's Algorithm</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your external CSS file -->
 </head>
 <body>
-    <h1>Dijkstra's Algorithm Code Example</h1>
-    <h3>Python Code for Dijkstra's Algorithm:</h3>
+    <div class="content">
+    <h1>Dijkstra's Algorithm</h1>
     <pre>
 def dijkstra(graph, start):
     shortest_paths = {vertex: float('infinity') for vertex in graph}
@@ -25,6 +28,13 @@ def dijkstra(graph, start):
                     
     return shortest_paths
     </pre>
+
+<h2>Catch</h2>
+<p>Dijkstra's algorithm finds the shortest path from a single source node to all other nodes in a graph with non-negative edge weights. It iteratively selects the node with the smallest tentative distance from the source and updates distances to its neighbors until all nodes are visited.</p>
+<p>ONLY guaranteed to work correctly if all edge weights are nonnegative. However, if the only negative edges are coming from the source (implies that the graph is directed), then Dijkstra would work correctly because it considers the negative weights in the first iteration (thus not possible to have a smaller distance later).</p>
+<h3>The textbook uses a different version of Dijkstra's algorithm. It MIGHT have different results from most sources.</h3>
+<p>Specifically...the textbook version still checks the adjacent vertices even if the vertex is removed. Even though the final result is the same, the process might be different. You would have to consider the last step especially if asked to construct a graph where negative weights make the algorithm incorrect. </p>
+    </div>
 </body>
 </html>
                   
