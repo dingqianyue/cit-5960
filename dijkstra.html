@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dijkstra's Algorithm</title>
+</head>
+<body>
+    <h1>Dijkstra's Algorithm Code Example</h1>
+    <h3>Python Code for Dijkstra's Algorithm:</h3>
+    <pre>
+def dijkstra(graph, start):
+    shortest_paths = {vertex: float('infinity') for vertex in graph}
+    shortest_paths[start] = 0
+    visited = set()
+    
+    while visited != set(graph):
+        unvisited = {node: shortest_paths[node] for node in graph if node not in visited}
+        current_node = min(unvisited, key=unvisited.get)
+        visited.add(current_node)
+        
+        for neighbour, weight in graph[current_node].items():
+            if neighbour not in visited:
+                new_distance = shortest_paths[current_node] + weight
+                if new_distance < shortest_paths[neighbour]:
+                    shortest_paths[neighbour] = new_distance
+                    
+    return shortest_paths
+    </pre>
+</body>
+</html>
+                  
