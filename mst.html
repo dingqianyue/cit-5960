@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minimum Spanning Tree</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Ensure styles.css is correctly linked -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="content"> <!-- This div will ensure that your content is styled by styles.css -->
-        <h1>Algorithmic Concepts in Graph Theory</h1>
-        <h2>Minimum Spanning Tree (MST)</h2>
+    <div class="content">
+        <h1>Minimum Spanning Tree (MST)</h1>
+        <h2>MST</h2>
         <p>Given: An undirected weighted connected graph where vertices represent islands and edges represent proposed bridges.</p>
         <p>Goal: Find a spanning tree of minimum total weight in this graph, ensuring that:</p>
         <ul>
@@ -18,8 +18,12 @@
         </ul>
         <p><strong>Claim:</strong> We will not ever make cycles in our construction. The minimum cost will be obtained by picking a subset of edges that make a tree and include every vertex, thus forming a spanning tree.</p>
 
+        <h2>Kruskal's Algorithm</h2>
+        <p>
+Kruskal's algorithm is a greedy algorithm that finds a minimum spanning tree for a connected weighted graph. It operates by sorting all the edges in the graph in non-decreasing order of their weights and adding them one by one to the spanning tree, ensuring that no cycles are formed, until the tree spans all vertices.</p>
+        
         <h2>Prim's Algorithm</h2>
-        <code>
+        <pre>
             Initialize the shortest array and the pred array
             Initialize a heap Q to contain all the vertices and use the shortest[v] for the key
             while Q is not null {
@@ -31,7 +35,7 @@
                     }
                 }
             }
-        </code>
+        </pre>
         <p>When the algorithm terminates, the min-priority queue Q is empty; the minimum spanning tree A for G is thus {{v, pred[v]} for all v in V - r}</p>
         <p>Similar to Dijkstra and greedy algorithms, build the MST by repeatedly finding the min cost to connect isolated vertices from the current frontier</p>
         <p>Once a vertex has been removed from the priority queue and included in the MST, its key value is considered final and not subject to further updates. This is because the key value represents the minimum cost needed to add the vertex to the MST, and once added, that vertex's inclusion is permanent.</p>
