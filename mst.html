@@ -17,6 +17,24 @@
             <li>The total construction cost is minimized.</li>
         </ul>
         <p><strong>Claim:</strong> We will not ever make cycles in our construction. The minimum cost will be obtained by picking a subset of edges that make a tree and include every vertex, thus forming a spanning tree.</p>
+
+        <h2>Prim's Algorithm</h2>
+        <code>
+            Initialize the shortest array and the pred array
+            Initialize a heap Q to contain all the vertices and use the shortest[v] for the key
+            while Q is not null {
+                u = deleteMin(Q)
+                for all v in adj(u) {
+                    if v in Q and weight(u, v) < shortest[v] {
+                        shortest[v] = weight(u, v)
+                        pred[v] = u
+                    }
+                }
+            }
+        </code>
+        <p>When the algorithm terminates, the min-priority queue Q is empty; the minimum spanning tree A for G is thus {{v, pred[v]} for all v in V - r}</p>
+        <p>Similar to Dijkstra and greedy algorithms, build the MST by repeatedly finding the min cost to connect isolated vertices from the current frontier</p>
+        <p>Once a vertex has been removed from the priority queue and included in the MST, its key value is considered final and not subject to further updates. This is because the key value represents the minimum cost needed to add the vertex to the MST, and once added, that vertex's inclusion is permanent.</p>
     </div>
 </body>
 </html>
