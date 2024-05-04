@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depth-First Search (DFS)</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your external CSS file -->
+    <!-- Load MathJax and configure for proper display of math -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['\\[', '\\]']]
+        },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>
+</head>
+<body>
+    <h1>Depth-First Search (DFS)</h1>
+    <h2>Overview</h2>
+    <p>
+        Depth-First Search (DFS) is an algorithm for traversing or searching tree or graph data structures. It starts at the root node and explores as far as possible along each branch before backtracking.
+    </p>
+    <h2>Algorithm Steps</h2>
+    <ol>
+        <li>Start by pushing the root node into the stack.</li>
+        <li>Pop a node from the stack to select the node for exploration. If the node is not marked as visited, mark it as visited and push all its adjacent nodes into the stack.</li>
+        <li>Repeat step 2 until the stack is empty.</li>
+    </ol>
+    <h2>Applications</h2>
+    <p>
+        DFS is utilized in various situations such as path finding, scheduling problems, and cycle detection in graphs.
+    </p>
+</body>
+</html>
