@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breadth-First Search (BFS)</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your external CSS file -->
+    <!-- Load MathJax and configure for proper display of math -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['\\[', '\\]']]
+        },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>
+</head>
+<body>
+    <h1>Breadth-First Search (BFS)</h1>
+    <h2>Overview</h2>
+    <p>
+        Breadth-First Search (BFS) is an algorithm for traversing or searching tree or graph data structures. It starts at a selected node of a graph, typically the root node, and explores all of the neighbor nodes at the present depth prior to moving on to nodes at the next depth level.
+    </p>
+    <h2>Algorithm Steps</h2>
+    <ol>
+        <li>Start by putting any one of the graph's vertices at the back of a queue.</li>
+        <li>Take the front item of the queue and add it to the visited list.</li>
+        <li>Create a list of that vertex's adjacent nodes. Add the ones which aren't in the visited list to the back of the queue.</li>
+        <li>Keep repeating steps 2 and 3 until the queue is empty.</li>
+    </ol>
+    <h2>Applications</h2>
+    <p>
+        BFS is used in a wide array of applications, such as finding the shortest path in unweighted graphs and for web crawling by search engines.
+    </p>
+</body>
+</html>
