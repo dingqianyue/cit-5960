@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minimum Spanning Tree</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Load MathJax and configure for proper display of math -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['\\[', '\\]']]
+        },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>
 </head>
 <body>
     <div class="content">
@@ -18,6 +32,8 @@
         </ul>
         <p><strong>Claim:</strong> We will not ever make cycles in our construction. The minimum cost will be obtained by picking a subset of edges that make a tree and include every vertex, thus forming a spanning tree.</p>
 
+        <h3>If all edge weights are distinct, then the MST is unique.</h3>
+        
         <h2>Kruskal's Algorithm</h2>
         <p>
 Kruskal's algorithm is a greedy algorithm that finds a minimum spanning tree for a connected weighted graph. It operates by sorting all the edges in the graph in non-decreasing order of their weights and adding them one by one to the spanning tree, ensuring that no cycles are formed, until the tree spans all vertices.</p>
@@ -51,6 +67,39 @@ Kruskal's algorithm is a greedy algorithm that finds a minimum spanning tree for
         <p>When the algorithm terminates, the min-priority queue Q is empty; the minimum spanning tree A for G is thus {{v, pred[v]} for all v in V - r}</p>
         <p>Similar to Dijkstra and greedy algorithms, build the MST by repeatedly finding the min cost to connect isolated vertices from the current frontier</p>
         <p>Once a vertex has been removed from the priority queue and included in the MST, its key value is considered final and not subject to further updates. This is because the key value represents the minimum cost needed to add the vertex to the MST, and once added, that vertex's inclusion is permanent.</p>
+
+        <h2>Kruskal vs Prim</h2>
+        <p>Kruskal's algorithm: maintains several connected components and guarantees eventual connectivity.</p>
+        <p>Prim's algorithm: grows a tree out of one vertex. Always has only one tree growing.</p>
+        <h3>Runtime Comparison</h3>
+        <p>Prim has the same runtime as Dijkstra: O((V+E)log V) = O(E log V)</p>
+        <p>Kruskal: sorting controls runtime. Usually O(E log E)</p>
+                        <p>We know due to connected graph input that V = O(E). There are more edges than vertices.</p>
+        <h3>In graphs why is O(log E) = O(log V)?</h3>
+                        <p>m is at most n^2. log n = 2 log n</p>
+                        <p>Prim and Kruskal have the same big-O runtime.</p>
+                        <p>If you can sort faster than O(E log E), Kruskal is better.</p>
+                        <p>Dense graph - Prim's with array implementation instead of heap</p>
+        <h2>Cut Theorem</h2>
+        <p>
+        The <strong>Cut Theorem</strong>, also known as the <strong>Cut Property</strong>, is a fundamental result in graph theory used particularly in the context of finding minimum spanning trees (MSTs). It provides a criterion for determining whether an edge is a part of some MST in a given graph.
+    </p>
+    <h2>Given:</h2>
+    <ul>
+        <li>A connected, weighted, undirected graph \( G = (V, E) \) with a weight function \( w: E \rightarrow \mathbb{R} \).</li>
+        <li>A cut \( (S, V-S) \) in \( G \), which partitions the vertex set \( V \) into two disjoint subsets \( S \) and \( V-S \).</li>
+    </ul>
+    <h2>Cut Theorem Statement:</h2>
+    <p>
+        If an edge \( e = (u, v) \in E \) is the lightest edge crossing the cut (i.e., \( u \in S \) and \( v \in V-S \)), and \( e \) has the smallest weight among all edges connecting \( S \) to \( V-S \), then this edge \( e \) is part of some Minimum Spanning Tree of \( G \).
+    </p>
+    <h2>Formal Description:</h2>
+    <p>
+        Let \( e = (u,v) \) be an edge such that \( u \in S \) and \( v \in V-S \), and suppose \( w(e) \) is less than \( w(e') \) for every other edge \( e' = (x,y) \) crossing the cut where \( x \in S \) and \( y \in V-S \). Then, there exists an MST of \( G \) that includes the edge \( e \).
+    </p>
+    <p>
+        This theorem is a cornerstone for MST algorithms like Kruskal’s and Prim’s, as it justifies the greedy strategy of selecting the smallest weight edges that do not form a cycle, ensuring the spanning tree remains minimal in total weight.
+    </p>
     </div>
 </body>
 </html>
