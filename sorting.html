@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Algorithms</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Load MathJax and configure for proper display of math -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['\\[', '\\]']]
+        },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>
+</head>
+<body>
+    <h1>Sorting Algorithms</h1>
+
+    <h2>Selection Sort</h2>
+    <p>
+        Selection Sort is an in-place comparison-based algorithm in which the list is divided into two parts, the sorted part at the front end and the unsorted part at the back end. It repeatedly identifies the smallest element from the unsorted section and swaps it with the first unsorted element. Typical runtime: \( O(n^2) \).
+    </p>
+
+    <h2>Insertion Sort</h2>
+    <p>
+        Insertion Sort builds the final sorted array one item at a time. It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort. However, it has simple implementation and is efficient for small data sets. Typical runtime: \( O(n^2) \).
+    </p>
+
+    <h2>Merge Sort</h2>
+    <p>
+        Merge Sort is a divide and conquer algorithm that divides the unsorted list into \( n \) sublists, each containing one element (a list of one element is considered sorted). Repeatedly merge sublists to produce new sorted sublists until there is only one sublist remaining. This will be the sorted list.
+    </p>
+    <p>
+        The algorithm recursively splits the list into halves until it cannot be further divided, then merges the smaller lists into a larger one in a way that results in a fully sorted list. This approach provides a best, average, and worst-case runtime of \( O(n \log n) \).
+    </p>
+
+    <h2>Quick Sort</h2>
+    <p>
+        Quick Sort is a highly efficient sorting algorithm and is based on partitioning an array into smaller sub-arrays. A pivot element is chosen from the array. Partitioning involves moving all elements smaller than the pivot to the left of the pivot and all larger elements to the right of it. This position is now in its final spot in the array.
+    </p>
+    <p>
+        The key process in quick sort is the partition. The choice of pivot and the partitioning step can be done in different ways and the efficiency of the algorithm depends significantly on these choices. Average and best-case performance of quick sort is \( O(n \log n) \) whereas the worst case is \( O(n^2) \), though this is rare.
+    </p>
+
+    <h2>Counting Sort</h2>
+    <p>
+        Counting Sort is an integer sorting algorithm that operates by counting the number of objects that have each distinct key value, and using arithmetic to determine the positions of each key value in the output sequence. Effective when the range of input data is not significantly greater than the number of objects to be sorted. Typical runtime: \( O(n + k) \), where \( k \) is the range of the input.
+    </p>
+
+    <h2>Radix Sort</h2>
+    <p>
+        Radix Sort is a non-comparative integer sorting algorithm that sorts data with integer keys by grouping the keys by individual digits which share the same significant position and value. It uses counting sort as a subroutine to sort. Typical runtime: \( O(n \cdot k) \), where \( n \) is the number of elements and \( k \) is the digit length of the number.
+    </p>
+
+    <h2>Bucket Sort</h2>
+    <p>
+        Bucket Sort works by distributing the elements of an array into a number of buckets. Each bucket is then sorted individually, either using a different sorting algorithm, or by recursively applying the bucket sort algorithm. It is mainly useful when input is uniformly distributed over a range. Typical runtime: \( O(n + k) \), where \( k \) is the number of buckets.
+    </p>
+
+</body>
+</html>
