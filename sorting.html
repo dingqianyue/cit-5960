@@ -21,7 +21,17 @@
     </script>
 </head>
 <body>
+    <div class="content">
     <h1>Sorting Algorithms</h1>
+        <ul>
+            <li>Selection Sort</li>
+            <li>Insertion Sort</li>
+            <li>Merge Sort</li>
+            <li>Quick Sort</li>
+            <li>Counting Sort</li>
+            <li>Radix Sort</li>
+            <li>Bucket Sort</li>
+        </ul>
 
     <h2>Selection Sort</h2>
     <p>
@@ -60,22 +70,22 @@
     </p>
 
     <h2>Bucket Sort</h2>
-    <p>
-        Bucket Sort works by distributing the elements of an array into a number of buckets. Each bucket is then sorted individually, either using a different sorting algorithm, or by recursively applying the bucket sort algorithm. It is mainly useful when input is uniformly distributed over a range. Typical runtime: \( O(n + k) \), where \( k \) is the number of buckets.
-    </p>
-    <h2>In-Place and Stable Algorithms</h2>
-    <h3>In-Place</h3>
-    <p>An in-place sorting algorithm sorts the elements of an array or list within the same memory space that contains the original elements, using only a small, fixed amount of additional memory. This means that the algorithm does not require extra storage proportional to the size of the input for the sorting process. Essentially, it rearranges the elements into a sorted order directly within the array, without needing to copy them into another array.</p>
-    <p>In-place: selection sort, insertion sort, and quick sort</p>
-    <p>NOT in-place: merge sort, counting sort, radix sort, bucket sort</p>
-    <h3>Stable</h3>
-    <p>Stability is a property that determines whether the algorithm maintains the relative order of records with equal keys (or values) as they appear in the input. In simpler terms, a stable sorting algorithm will preserve the order of equal elements as they were in the original list.</p>
-    <p>Stable: insertion sort, merge sort, counting sort, radix sort, bucket sort (using insertion sort within each bucket)</p>
-    <p>NOT stable: selection sort and quick sort (inherently unstable)</p>
+        <p>Bucket Sort works by distributing the elements of an array into a number of buckets. Each bucket is then sorted individually, either using a different sorting algorithm, or by recursively applying the bucket sort algorithm. It is mainly useful when input is uniformly distributed over a range. Typical runtime: \( O(n + k) \), where \( k \) is the number of buckets.</p>
+        <p>Bucket sort requires the input to be uniform distribution (in order to get the desired runtime).</p>
+        <p>If not uniformly distributed, runtime becomes O(n^2) in the worst case because the dominant operation is insertion sort within the buckets.</p>
+        
+        <h2>In-Place Sorting Algorithms</h2>
+        <p>An in-place sorting algorithm sorts the elements of an array or list within the same memory space that contains the original elements, using only a small, fixed amount of additional memory. This means that the algorithm does not require extra storage proportional to the size of the input for the sorting process. Essentially, it rearranges the elements into a sorted order directly within the array, without needing to copy them into another array.</p>
+        <p>In-place: selection sort, insertion sort, and quick sort</p>
+        <p>NOT in-place: merge sort, counting sort, radix sort, bucket sort</p>
+        <h2>Stable Sorting Algorithms</h2>
+        <p>Stability is a property that determines whether the algorithm maintains the relative order of records with equal keys (or values) as they appear in the input. In simpler terms, a stable sorting algorithm will preserve the order of equal elements as they were in the original list.</p>
+        <p>Stable: insertion sort, merge sort, counting sort, radix sort, bucket sort (using insertion sort within each bucket)</p>
+        <p>NOT stable: selection sort and quick sort (inherently unstable)</p>
 
-    <h2>Catch</h2>
-    <h3>You should only use the last three sorting algorithms (Counting, Radix, and Bucket) if you know something about the input.</h3>
-    <h4></h4>
-
+        <h2>Catch</h2>
+        <h3>You should only use the last three sorting algorithms (Counting, Radix, and Bucket) if you know something about the input.</h3>
+        <h4></h4>
+    </div>
 </body>
 </html>
