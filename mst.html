@@ -49,6 +49,23 @@ Kruskal's algorithm is a greedy algorithm that finds a minimum spanning tree for
         <p>The bottleneck is the sorting step.</p>
 
         <h2>Union-Find (Disjoint-Set) Data Structure</h2>
+        <h3>Description</h3>
+        <p>The Union-Find data structure, also known as Disjoint Set Union (DSU), efficiently tracks a partition of a set into disjoint subsets. It supports two primary operations:</p>
+        <ul>
+            <li><strong>find</strong>: Identifies the subset containing a given element.</li>
+            <li><strong>union</strong>: Merges two subsets into a single subset.</li>
+        </ul>
+        <p>These operations are implemented using a tree-like structure that employs path compression and union by rank to ensure almost constant time complexity.</p>
+        <h3>Application in Kruskal's Algorithm</h3>
+        <h4>Algorithm Steps</h4>
+            <ol>
+                <li>Initialize an empty graph that will eventually hold the MST.</li>
+                <li>Sort all edges of the graph in non-decreasing order by weight.</li>
+                <li>Select edges in sorted order and apply the union-find structure to check and merge sets without forming cycles.</li>
+                <li>Terminate when the MST contains \( V-1 \) edges, where \( V \) is the number of vertices.</li>
+            </ol>
+        <h3>Justification</h3>
+        <p>Kruskal's algorithm, a greedy approach, utilizes the union-find structure to manage the sets of vertices. Edges are added to the MST only if they connect disjoint sets, ensuring no cycles are created and the resulting graph is a minimum spanning tree.</p>
         
         <h2>Prim's Algorithm</h2>
         <pre>
@@ -84,16 +101,16 @@ Kruskal's algorithm is a greedy algorithm that finds a minimum spanning tree for
         <p>
         The <strong>Cut Theorem</strong>, also known as the <strong>Cut Property</strong>, is a fundamental result in graph theory used particularly in the context of finding minimum spanning trees (MSTs). It provides a criterion for determining whether an edge is a part of some MST in a given graph.
     </p>
-    <h2>Given:</h2>
+    <h3>Given:</h3>
     <ul>
         <li>A connected, weighted, undirected graph \( G = (V, E) \) with a weight function \( w: E \rightarrow \mathbb{R} \).</li>
         <li>A cut \( (S, V-S) \) in \( G \), which partitions the vertex set \( V \) into two disjoint subsets \( S \) and \( V-S \).</li>
     </ul>
-    <h2>Cut Theorem Statement:</h2>
+    <h3>Theorem:</h3>
     <p>
         If an edge \( e = (u, v) \in E \) is the lightest edge crossing the cut (i.e., \( u \in S \) and \( v \in V-S \)), and \( e \) has the smallest weight among all edges connecting \( S \) to \( V-S \), then this edge \( e \) is part of some Minimum Spanning Tree of \( G \).
     </p>
-    <h2>Formal Description:</h2>
+    <h3>Formal Description:</h3>
     <p>
         Let \( e = (u,v) \) be an edge such that \( u \in S \) and \( v \in V-S \), and suppose \( w(e) \) is less than \( w(e') \) for every other edge \( e' = (x,y) \) crossing the cut where \( x \in S \) and \( y \in V-S \). Then, there exists an MST of \( G \) that includes the edge \( e \).
     </p>
