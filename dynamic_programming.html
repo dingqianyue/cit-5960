@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Programming</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Load MathJax and configure for proper display of math -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['\\[', '\\]']]
+        },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>
+</head>
+<body>
+    <div class="content">
+      <p>Dynamic Programming (DP) is a method for solving complex problems by breaking them down into simpler subproblems. It is applicable where the problem can be divided into overlapping subproblems, and there is an optimal substructure to these problems. In dynamic programming, each subproblem is solved only once and its solution is stored, making the solution of larger problems much more efficient.</p>
+      <h2>Coin Change Problem</h2>
+      <p>The coin change problem is a classic example where you need to determine the number of ways to make a certain amount, \( n \), using any combination of predefined coins. Let \( C \) represent different denominations of coins. The goal is to find out how many ways you can form the amount \( n \) using these coins.</p>
+  
+      <h2>Edit Distance Problem</h2>
+      <p>Edit distance, also known as Levenshtein distance, measures the minimum number of operations required to transform one string into another. The operations allowed are insertion, deletion, or substitution of a single character. This problem is crucial in applications like spell checking, plagiarism detection, and DNA sequencing.</p>
+  
+      <h2>Knapsack Problem</h2>
+      <p>The knapsack problem is a problem in combinatorial optimization. Given a set of items, each with a weight and a value, determine the number of each item to include in a collection so that the total weight is less than or equal to a given limit and the total value is as large as possible.</p>
+  
+      <h2>0/1 Knapsack Problem</h2>
+      <p>The 0/1 knapsack problem is a variant of the knapsack problem where each item can either be taken or not taken. You are given a set of items, each with a weight and a value, and you need to determine which items to include in a knapsack so that the total weight is less than or equal to a given limit and the total value is maximized. The difference from the standard knapsack problem is that you cannot take a fractional part of an item.</p>
+      
+    </div>
+</body>
+</html>
+        
