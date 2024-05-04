@@ -21,6 +21,18 @@
         <h2>Kruskal's Algorithm</h2>
         <p>
 Kruskal's algorithm is a greedy algorithm that finds a minimum spanning tree for a connected weighted graph. It operates by sorting all the edges in the graph in non-decreasing order of their weights and adding them one by one to the spanning tree, ensuring that no cycles are formed, until the tree spans all vertices.</p>
+        <pre>
+            1. sort edges by weight in ascending order
+            2. T = empty set
+            3. loop over the edges in sorted order
+            if adding the edge to T does not create a cycle in T,
+            then go ahead and add it to T
+            4. return T
+        </pre>
+        <p>Using DFS for cycle checking</p>
+        <p>The bottleneck is the sorting step.</p>
+
+        <h2>Union-Find (Disjoint-Set) Data Structure</h2>
         
         <h2>Prim's Algorithm</h2>
         <pre>
