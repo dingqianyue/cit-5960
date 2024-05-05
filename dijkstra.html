@@ -4,31 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dijkstra's Algorithm</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your external CSS file -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Load MathJax and configure for proper display of math -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['\\[', '\\]']]
+        },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>
 </head>
 <body>
     <div class="content">
     <h1>Dijkstra's Algorithm</h1>
     <pre>
-def dijkstra(graph, start):
-    shortest_paths = {vertex: float('infinity') for vertex in graph}
-    shortest_paths[start] = 0
-    visited = set()
-    
-    while visited != set(graph):
-        unvisited = {node: shortest_paths[node] for node in graph if node not in visited}
-        current_node = min(unvisited, key=unvisited.get)
-        visited.add(current_node)
-        
-        for neighbour, weight in graph[current_node].items():
-            if neighbour not in visited:
-                new_distance = shortest_paths[current_node] + weight
-                if new_distance < shortest_paths[neighbour]:
-                    shortest_paths[neighbour] = new_distance
-                    
-    return shortest_paths
+        initialize shortest and pred arrays
+        put all vertices in Q
+        while Q != empty
+            u = vertex in Q that has the smallest value in shortest
+            delete u from Q
+        for each v in adj(u)
+            relax(u,v)
+
+        relax(u,v)
+        if shortest[v] > shortest[u] + weight(u,v)
+            shortest[v] = pred[v] = u
     </pre>
 
+    <h2>Array vs Heap</h2>
+    <h3>Array-based implementation of Q</h3>
+    <p>Runtime = O(V^2)</p>
+    <h3>Heap-based implementation</h3>
+    <p>Min heap</p>
+    <p>Runtime = O((V+E)logV)</p>
+    <h4>Which implementation is better?</h4>
+    <p>If the graph is dense, use array-based implementation. O(E) = O(V^2).</p>
+    <p>If the graph is sparse, use heap-based implementation.</p>
 <h2>Catch</h2>
 <p>Dijkstra's algorithm finds the shortest path from a single source node to all other nodes in a graph with non-negative edge weights. It iteratively selects the node with the smallest tentative distance from the source and updates distances to its neighbors until all nodes are visited.</p>
 <p>ONLY guaranteed to work correctly if all edge weights are nonnegative. However, if the only negative edges are coming from the source (implies that the graph is directed), then Dijkstra would work correctly because it considers the negative weights in the first iteration (thus not possible to have a smaller distance later).</p>
@@ -36,5 +53,4 @@ def dijkstra(graph, start):
 <p>Specifically...the textbook version still checks the adjacent vertices even if the vertex is removed. Even though the final result is the same, the process might be different. You would have to consider the last step especially if asked to construct a graph where negative weights make the algorithm incorrect. </p>
     </div>
 </body>
-</html>
-                  
+</html>         

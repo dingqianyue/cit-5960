@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bellman-Ford Algorithm</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Load MathJax and configure for proper display of math -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['\\[', '\\]']]
+        },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>
+</head>
+<body>
+    <div class="content">
+
+    <p>The Bellman-Ford algorithm calculates shortest paths from a single source vertex to all other vertices in a weighted graph, including those with negative weights. It can handle negative weight edges and detect negative weight cycles. The algorithm performs up to \( V-1 \) iterations, where \( V \) is the number of vertices, to ensure all shortest paths are correctly identified. Its time complexity is \( O(VE) \), where \( E \) is the number of edges, making it suitable for graphs where Dijkstra’s algorithm may fail due to negative weights.</p>
+    
+    <h2>Pseudocode for Bellman-Ford</h2>
+    <pre>
+        for i from 1 to n-1 (n-1 iterations)
+        for each (u,v)
+        relax(u,v)
+
+        relax(u,v)
+        if shortest[v] > shortest[u] + weight(u,v)
+            shortest[v] = pred[v] = u
+    </pre>
+
+    <p>The Bellman-Ford algorithm performs \( V-1 \) iterations by default, even if no further updates are necessary; however, it can be optimized to terminate early once all updates are completed.</p>
+
+    <h2>Single-Source Shortest-Path Algorithms Comparison</h2>
+    <ol>
+        <li>If weights do not matter (unweighted) or all weights are equal, use BFS.</li>
+        <li>If the graph is a DAG, use topological sorting algorithm (either Kahn's or Tarjan's).</li>
+        <li>If all edge weights are nonnegative, use Dijkstra's algorithm.</li>
+        <li>If there are negative edge weights (but no negative cycles), use Bellman-Ford algorithm.</li>
+    </ol>
+    <p>No algorithm can compute the shortest path in the presence of a negative cycle, as repeatedly traversing the cycle allows the path length to decrease indefinitely towards negative infinity.</p>
+    <p>A negative cycle in a graph is a closed loop of edges whose combined weights sum up to a negative value. Not JUST the cycles that have all negative edges.</p>
+    
+</div>
+</body>
+</html>         
