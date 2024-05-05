@@ -21,11 +21,14 @@
     </script>
 </head>
 <body>
+    <div class="content">
     <h1>Depth-First Search (DFS)</h1>
     <h2>Overview</h2>
     <p>
         Depth-First Search (DFS) is an algorithm for traversing or searching tree or graph data structures. It starts at the root node and explores as far as possible along each branch before backtracking.
     </p>
+    <p>DFS works for both directed and undirected graphs.</p>
+        
     <h2>Algorithm Steps</h2>
     <ol>
         <li>Start by pushing the root node into the stack.</li>
@@ -36,5 +39,17 @@
     <p>
         DFS is utilized in various situations such as path finding, scheduling problems, and cycle detection in graphs.
     </p>
+        
+    <h2>Types of Edges in DFS</h2>
+        <p>Every DFS produces a Depth First Forest (a collection of trees) to that DFS.</p>
+        <ul>
+        <li><strong>Tree Edges:</strong> Lead to an undiscovered vertex and form the backbone of the DFS tree.</li>
+        <li><strong>Forward Edges:</strong> Connect a vertex to a descendant in the DFS tree, other than via tree edges (not a part of the DFS tree).</li>
+        <li><strong>Back Edges:</strong> Link a vertex back to one of its ancestors, important for detecting cycles in directed graphs. The existence of a back edge means that there is a cycle.</li>
+        <li><strong>Cross Edges:</strong> Connect two vertices that are neither ancestors nor descendants of each other, usually linking nodes in different branches of the DFS tree. All other edges are cross edges.</li>
+    </ul>
+        <p>Each edge can only be one of the types. The categories are mutually exclusive.</p>
+        
+    </div>
 </body>
 </html>
