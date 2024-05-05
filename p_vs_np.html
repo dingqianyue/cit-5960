@@ -58,84 +58,60 @@
         </ul>
 
         <h2>Last Lecture! Tuesday, April 30, 2024</h2>
-        <p>P - class of problems with O(polynomial) with respect to input size</p>
-        <h4>Input size conventions</h4>
-        <p>Array — length</p>
-        <p>Graph — # of vertices, # of edges</p>
-        <p>String — # of chars</p>
-        <p>***Single num — log(number)***</p>
-        <p>NP</p>
-        <p>NP-Hard</p>
-        <p>NP-Complete</p>
-        
-        <p>We know O(nW) algorithm for 0/1 knapsack does not make this problem in P.</p>
-        <h4>Decision Problem</h4>
-        <p>A problem that has a yes/no output</p>
-        <p>e.g. Hamiltonian path problem</p>
-        <p>Given a graph undirected, does this graph have a Hamiltonian path (path containing all vertices)?</p>
+        <h3>Complexity Classes</h3>
+    <p>\(\mathcal{P}\) - class of problems solvable in polynomial time (\(O(\text{polynomial})\)) with respect to the input size.</p>
+    <h4>Input Size Conventions</h4>
+    <ul>
+        <li>Array — length of the array</li>
+        <li>Graph — number of vertices and edges</li>
+        <li>String — number of characters</li>
+        <li>Single number — \(\log(\text{number})\)</li>
+    </ul>
+    <p>\(\mathcal{NP}\), \(\mathcal{NP}\)-Hard, \(\mathcal{NP}\)-Complete</p>
 
-        <h4>Optimization Problems</h4>
-        <p>Problems where goal is to maximize/minimize</p>
-        <p>e.g. shortest path, edit distance, 0/1 knapsack</p>
+    <p>An \(O(nW)\) algorithm for the 0/1 knapsack problem does not categorize this problem as in \(\mathcal{P}\).</p>
 
-        <p>Note - if we can solve decision problems, we can often use those solutions to solve the optimization version</p>
-        <p>Consider decision version of 0/1 knapsack</p>
-        <p>Inputs: given capacity W knapsack</p>
-        <p>item</p>
-        <p>weight</p>
-        <p>value</p>
+    <h4>Decision Problems</h4>
+    <p>A problem that yields a yes/no output.</p>
+    <p>Example: Hamiltonian Path Problem</p>
+    <p>Question: Given an undirected graph, does it contain a Hamiltonian path (a path that visits all vertices)?</p>
 
-        <p>Decision version asks can we get a value >= V by filling above knapsack</p>
-        <h4>Question: Does solving 0/1 decision help to solve optimization version?</h4>
-        <p>0, 1, 2, ..., K (first no)</p>
-        <p>Binary search</p>
-        <p>min 0 or 1</p>
-        <p>max sum of all values</p>
+    <h4>Optimization Problems</h4>
+    <p>Goals to maximize or minimize some function.</p>
+    <p>Examples include shortest path, edit distance, and the 0/1 knapsack problem.</p>
 
-        <h4>NP - defined for decision problems in the following manner</h4>
-        <p>Given a YES instance of the decision problem and a certificate of this YES instance, the certificate can be *verified* in polynomial manner.</p>
-        <p>(A certificate is a string that certifies the answer to a computation.)</p>
-        <h4>DO NOT TRY TO SOLVE AN NP PROBLEM IN EXAM</h4>
+    <p>Note: Solutions to decision problems can often be adapted to solve corresponding optimization problems.</p>
 
-        <h4>Question: Show Hamiltonian path problem is an element of NP</h4>
-        <p>Assume we have a graph where there is some Hamiltonian path. Now we are given a certificate of this path as some order of vertices say v1, v2, ..., vn</p>
-        <p>Now to check that this is a Hamiltonian path</p>
-        <li>Check that it has all vertices. Runtime - even a silly algo O(n^2)</li>
-        <li>Check if (v1, v2) is an edge, check if (v2, v3) is  an edge etc. </li>
-        <p>Runtime: In adj matrix check (v1, v2) edge is O(1) time.</p>
-        <p>In adj list check the whole thing takes O(n+m).</p>
+    <p>Consider the decision version of the 0/1 knapsack problem:</p>
+    <ul>
+        <li>Input: A knapsack with a given capacity \(W\)</li>
+        <li>Items each with a weight and a value</li>
+        <li>Question: Is there a selection of items such that the total value is at least \(V\) without exceeding the capacity \(W\)?</li>
+    </ul>
 
-        <h4>Question: Show decision version of 0/1 knapsack is in NP</h4>
-        <p>input - W</p>
-        <p>(wi, vi) - weights, values of items</p>
-        <p>V</p>
-        <p>Can we get at least value V</p>
-        <p>Certificate - list of items that were picked to put in bag</p>
-        <p>Verficiation - check that items do not exceed cap</p>
-        <p>Sum up values. Check >= V</p>
-        <p>Claim both checks are polynomial time</p>
+    <h4>NP Definition</h4>
+    <p>For decision problems: Given a "YES" instance and a "certificate" for this instance, the certificate can be verified in polynomial time.</p>
 
-        <p>Note - problems like 0/1 knapsack are NOT unsolved</p>
-        <p>How many subsets of a set 2^n</p>
+    <h4>Advice</h4>
+    <p>Do not attempt to solve an \(\mathcal{NP}\) problem during an exam!</p>
 
-        <h4>P vs NP</h4>
-        <p>Result: we know P is a subset of NP</p>
-        <p>Intuition - if you can solve something in polynomial time, then verification in polynomial time is easy.</p>
+    <h4>Hamiltonian Path Problem Example</h4>
+    <p>Assuming a graph contains some Hamiltonian path, the certificate would be a sequence of vertices \(v_1, v_2, \ldots, v_n\).</p>
+    <ul>
+        <li>Verification includes checking if all vertices are present and in order, with each consecutive pair forming an edge.</li>
+        <li>Using an adjacency matrix, checking if an edge exists between any two vertices is \(O(1)\).</li>
+        <li>Using an adjacency list, the entire verification takes \(O(n+m)\).</li>
+    </ul>
 
-        <p>We don't know if NP is a subset of P. This is unsolved.</p>
-            <li>To show NP is not a subset of P what do we need to do?</li>
-        <p>We would need to show some NP problem can NEVER be solved in polynomial time (near impossible...)</p>
-        <li>To show NP is a subset of P, we would need to show every NP problem can be solved in polynomial time</li>
+    <h4>P vs NP</h4>
+    <p>It is known that \(\mathcal{P}\) is a subset of \(\mathcal{NP}\). The unresolved question is whether \(\mathcal{NP}\) is a subset of \(\mathcal{P}\).</p>
 
-        <h4>NP-Hard Problems</h4>
-        <p>A problem Q is an NP-Hard problem iff (if and only if) all NP problems can be solved if this problem Q can be solved formally - all NP problem "reduced to" Q.</p>
-        <p>(A problem P is NP-Hard if for every problem L in NP, there is a polynomial-time reduction from L to P. This means that if an efficient (polynomial-time) algorithm exists for solving P, then an efficient algorithm can be derived for solving every problem in NP.)</p>
-        <h4>Reduction</h4>
-        <p>subset sum - S = {a1, a2, ..., an} (can be solved by dynamic programming)</p>
-        <p>target t</p>
-        <p>Question: does there exist a subset sums up to t</p>
-        <p>Question: Given set S, does there exist a subset that sums up to exactly half the total summation of S, i.e. can we divide S into 2 equal partitions?</p>
-        
+    <h4>NP-Hard Problems</h4>
+    <p>An NP-Hard problem is one such that if it can be solved in polynomial time, then every problem in \(\mathcal{NP}\) can be reduced to it and thus solved in polynomial time.</p>
+
+    <h4>Reduction Example</h4>
+    <p>Subset sum problem: Given a set \(S = \{a_1, a_2, \ldots, a_n\}\) and a target \(t\), determine if there is a subset whose sum equals \(t\).</p>
+    <p>Partition problem: Can \(S\) be divided into two subsets with equal sums?</p>
     </div>
 </body>
 </html>
