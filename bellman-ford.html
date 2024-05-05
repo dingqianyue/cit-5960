@@ -22,16 +22,17 @@
 </head>
 <body>
     <div class="content">
+    <h1>Bellman-Ford Algorithm</h1>
 
     <p>The Bellman-Ford algorithm calculates shortest paths from a single source vertex to all other vertices in a weighted graph, including those with negative weights. It can handle negative weight edges and detect negative weight cycles. The algorithm performs up to \( V-1 \) iterations, where \( V \) is the number of vertices, to ensure all shortest paths are correctly identified. Its time complexity is \( O(VE) \), where \( E \) is the number of edges, making it suitable for graphs where Dijkstra’s algorithm may fail due to negative weights.</p>
     
     <h2>Pseudocode for Bellman-Ford</h2>
     <pre>
         for i from 1 to n-1 (n-1 iterations)
-        for each (u,v)
-        relax(u,v)
+            for each (u,v)
+            relax(u,v)
 
-        relax(u,v)
+        relax(u,v):
         if shortest[v] > shortest[u] + weight(u,v)
             shortest[v] = pred[v] = u
     </pre>

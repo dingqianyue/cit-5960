@@ -21,8 +21,8 @@
     </script>
 </head>
 <body>
-    <div class="content"> <!-- Content container for your CSS styling -->
-        <h1>Understanding Greedy Algorithms</h1>
+    <div class="content">
+        <h1>Greedy Algorithms</h1>
         <h2>Coin Change Making Problem</h2>
         <p>We have coins of the following denominations: \( \{1, 2, 4, 8, \ldots, 2^i, 2^n\} \).</p>
         <p>The goal is to make change for an amount \( A \) greater than \( 2^n \) using the least number of coins.</p>
@@ -40,6 +40,7 @@
         C_0 + C_1 \cdot 2 + C_2 \cdot 4 + \ldots + C_{n-1} \cdot 2^{n-1} \geq 2^n
         \]
         By lemma, if this solution is optimal, none of these \( C_0, C_1, \ldots, C_{n-1} \) can be 2 or larger because 2 coins of \( 2^i \) can be replaced by just 1 coin of \( 2^{i+1} \). The sum of lower denominations is \( 2^n - 1 \), which defies the above inequality. Thus, a solution that does not use as many \( 2^n \) coins as possible cannot be optimal.</p>
+    
     </div>
 </body>
 </html>

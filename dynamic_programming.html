@@ -23,18 +23,54 @@
 <body>
     <div class="content">
       <p>Dynamic Programming (DP) is a method for solving complex problems by breaking them down into simpler subproblems. It is applicable where the problem can be divided into overlapping subproblems, and there is an optimal substructure to these problems. In dynamic programming, each subproblem is solved only once and its solution is stored, making the solution of larger problems much more efficient.</p>
+      <h2>Dynamic Programming Steps</h2>
+      <ol>
+        <li>Subproblem definition (specify notations)</li>
+        <li>Recursive equation</li>
+        <li>Itarative solution (fill up some array)</li>
+      </ol>
+      
       <h2>Coin Change Problem</h2>
       <p>The coin change problem is a classic example where you need to determine the number of ways to make a certain amount, \( n \), using any combination of predefined coins. Let \( C \) represent different denominations of coins. The goal is to find out how many ways you can form the amount \( n \) using these coins.</p>
   
       <h2>Edit Distance Problem</h2>
       <p>Edit distance, also known as Levenshtein distance, measures the minimum number of operations required to transform one string into another. The operations allowed are insertion, deletion, or substitution of a single character. This problem is crucial in applications like spell checking, plagiarism detection, and DNA sequencing.</p>
-  
+        <p>The rightmost column has 3 possibilites:</p>
+        <p>1. x[i] is aligned with -: cost = 1</p>
+        <p>2. - is aligned with y[j]: cost = 1</p>
+        <p>3. x[i] is aligned with y[j]: cost = 1 if x[i] != y[j], cost = 0 if x[i] = y[j]</p>
+        <p>E(i,j) = min{1 + E(i-1, j), 1 + E(i, j-1), diff(i, j) + E(i-1, j-1)}</p>
+        <p>diff(i,j): if x[i] = y[j], diff(i,j) = 0; 1 otherwise.</p>
+
+
       <h2>Knapsack Problem</h2>
+      <h3>Knapsack where repeats are allowed (there are infinitely many item 1, item 2, etc.).</h3>
       <p>The knapsack problem is a problem in combinatorial optimization. Given a set of items, each with a weight and a value, determine the number of each item to include in a collection so that the total weight is less than or equal to a given limit and the total value is as large as possible.</p>
-  
+      <p>Runtime: O(nW), where W is the capacity of the knapsack (container/bag).</p>
+
       <h2>0/1 Knapsack Problem</h2>
+      <h3>We can take at most 1 unit of any item. For each item, we either take it or leave it.</h3>
       <p>The 0/1 knapsack problem is a variant of the knapsack problem where each item can either be taken or not taken. You are given a set of items, each with a weight and a value, and you need to determine which items to include in a knapsack so that the total weight is less than or equal to a given limit and the total value is maximized. The difference from the standard knapsack problem is that you cannot take a fractional part of an item.</p>
+      <p>P(w, j): max value cap is w and we can only pick items from {1, 2, ..., j}.</p>
       
+      <p>Using dynamic programming, the 0/1 Knapsack problem can be defined as follows:</p>
+        <p>Let \( P(w, j) \) be the maximum value that can be achieved with a knapsack capacity \( w \) using the first \( j \) items.</p>
+        <p>The recursive formula for \( P(w, j) \) is:</p>
+        <p>\[
+        P(w, j) = 
+        \begin{cases} 
+        0 & \text{if } j = 0 \text{ or } w = 0, \\
+        P(w, j-1) & \text{if } w_j > w, \\
+        \max(P(w, j-1), v_j + P(w-w_j, j-1)) & \text{otherwise}.
+        \end{cases}
+        \]</p>
+        <p>Where \( w_j \) and \( v_j \) are the weight and value of the \( j \)-th item, respectively.</p>
+        <p>The runtime complexity of this dynamic programming solution is \( O(nW) \), where \( n \) is the number of items and \( W \) is the total capacity of the knapsack.</p>
+
+        <p>The 0/1 Knapsack problem is classified as NP-complete because it is in NP (solutions are verifiable in polynomial time).</p>
+        <p>The input \( W \) (knapsack capacity) affects the solution's computational complexity exponentially, not linearly, because the problem's state space grows exponentially with \( W \), necessitating more computational resources as \( W \) increases.</p>
+        <p>Check out <a href="p_vs_np.html">P vs NP Problems</a> to learn more.</p>
+        
     </div>
 </body>
 </html>
