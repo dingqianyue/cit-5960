@@ -58,21 +58,23 @@
     <p>
         The key process in quick sort is the partition. The choice of pivot and the partitioning step can be done in different ways and the efficiency of the algorithm depends significantly on these choices. Average and best-case performance of quick sort is \( O(n \log n) \) whereas the worst case is \( O(n^2) \), though this is rare.
     </p>
+    <p>Quick sort with the pivot as the last element involves partitioning the array so that elements less than the pivot are on the left and those greater than it are on the right. After placing the pivot in its correct position, the algorithm recursively applies the same process to the sub-arrays on either side until the entire array is sorted.</p>
+    <p>Randomized quick sort improves standard quick sort by randomly selecting the pivot, reducing the likelihood of encountering the worst-case time complexity due to poor pivot choices.</p>
 
     <h2>Counting Sort</h2>
     <p>
-        Counting Sort is an integer sorting algorithm that operates by counting the number of objects that have each distinct key value, and using arithmetic to determine the positions of each key value in the output sequence. Effective when the range of input data is not significantly greater than the number of objects to be sorted. Typical runtime: \( O(n + k) \), where \( k \) is the range of the input.
+        Counting Sort is an integer sorting algorithm that operates by counting the number of objects that have each distinct key value, and using arithmetic to determine the positions of each key value in the output sequence. Effective when the range of input data is not significantly greater than the number of objects to be sorted. Typical runtime: \( O(n + m) \), where \( m \) is the range of the input.
     </p>
 
     <h2>Radix Sort</h2>
     <p>
-        Radix Sort is a non-comparative integer sorting algorithm that sorts data with integer keys by grouping the keys by individual digits which share the same significant position and value. It uses counting sort as a subroutine to sort. Typical runtime: \( O(n \cdot k) \), where \( n \) is the number of elements and \( k \) is the digit length of the number.
+        Radix Sort is a non-comparative integer sorting algorithm that sorts data with integer keys by grouping the keys by individual digits which share the same significant position and value. It uses counting sort as a subroutine to sort. Typical runtime: \( O(d \cdot (n+m)) \), where \( d \) is the number of digits, \( n \) is the number of elements, and \( m \) is the digit length of the number (range of values for each digit, for example a base 10 number is ranged from 0-9, so \( m \) = 10).
     </p>
 
     <h2>Bucket Sort</h2>
         <p>Bucket Sort works by distributing the elements of an array into a number of buckets. Each bucket is then sorted individually, either using a different sorting algorithm, or by recursively applying the bucket sort algorithm. It is mainly useful when input is uniformly distributed over a range. Typical runtime: \( O(n + k) \), where \( k \) is the number of buckets.</p>
         <p>Bucket sort requires the input to be uniform distribution (in order to get the desired runtime).</p>
-        <p>If not uniformly distributed, runtime becomes O(n^2) in the worst case because the dominant operation is insertion sort within the buckets.</p>
+        <p>If not uniformly distributed, runtime becomes \( O(n^2) \) in the worst case because the dominant operation is insertion sort within the buckets.</p>
         
         <h2>In-Place Sorting Algorithms</h2>
         <p>An in-place sorting algorithm sorts the elements of an array or list within the same memory space that contains the original elements, using only a small, fixed amount of additional memory. This means that the algorithm does not require extra storage proportional to the size of the input for the sorting process. Essentially, it rearranges the elements into a sorted order directly within the array, without needing to copy them into another array.</p>
@@ -84,8 +86,10 @@
         <p>NOT stable: selection sort and quick sort (inherently unstable)</p>
 
         <h2>Catch</h2>
-        <h3>You should only use the last three sorting algorithms (Counting, Radix, and Bucket) if you know something about the input.</h3>
-        <h4></h4>
+        <h3>You should only consider using the last three sorting algorithms (Counting, Radix, and Bucket) if you know something about the input.</h3>
+        <h4>Otherwise, merge sort is the best/standard sorting algorithm to use.</h4>
+        <p>Merge sort is typically favored as a standard sorting algorithm because it is stable and guarantees a consistent O(n log n) time complexity in all cases, including the worst case. Quick sort, while often faster in practice, has a worst-case time complexity of O(n²) and may not always maintain relative order for equivalent elements.</p>
+        <p>Note that merge sort is not in-place (if that matters).</p>
     </div>
 </body>
 </html>
