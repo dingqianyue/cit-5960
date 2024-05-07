@@ -12,10 +12,11 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: center; /* Centers content horizontally */
+            align-items: flex-start; /* Aligns content to the top rather than center */
             font-family: 'Arial', sans-serif;
             background-color: #f4f4f4;
+            overflow-y: auto; /* Allows vertical scrolling */
         }
         .content {
             text-align: center;
@@ -23,6 +24,9 @@
             padding: 40px;
             background-color: #fff;
             border-radius: 8px;
+            width: 90%; /* Limits width and ensures padding */
+            max-width: 600px; /* Maximum width of content */
+            margin-top: 20px; /* Adds some space on the top */
         }
         h1 {
             color: #2c3e50;
