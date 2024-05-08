@@ -66,6 +66,26 @@ Kruskal's algorithm is a greedy algorithm that finds a minimum spanning tree for
             </ol>
         <h3>Justification</h3>
         <p>Kruskal's algorithm, a greedy approach, utilizes the union-find structure to manage the sets of vertices. Edges are added to the MST only if they connect disjoint sets, ensuring no cycles are created and the resulting graph is a minimum spanning tree.</p>
+
+        <h2>Kruskal's Algorithm with Union-Find</h2>
+        <p>1. Sort edges by ascending order of weights</p>
+        <p>Add edges to tree in order: skip an edge if it create cycles</p>
+        <pre>
+            for each v in V
+                makeset(v)
+            sort edges ascendingly by weight
+            for each (u,v) in E:
+                if find(u) != find(v):
+                    add(u,v) to MST
+                    union(u,v)
+            return MST
+        </pre>
+        <p>Do it by hand: actually write down the edges in nonincreasing order, e.g. (A,B), (B,C), (C,B)</p>
+        <p>Create a boolean array to store the edges in nonincreasing order (edges are headers / indices) & the edge is a part of MST if true.</p>
+        <p>Step 1: Set = (A,B),C</p>
+        <p>Step 2: Set = (A,B,C)</p>
+        <p>Step 3: (C,B) already has both vertices in the set, so it creates a cycle. We do not add (C,B).</p>
+
         
         <h2>Prim's Algorithm</h2>
         <pre>
@@ -117,6 +137,11 @@ Kruskal's algorithm is a greedy algorithm that finds a minimum spanning tree for
     <p>
         This theorem is a cornerstone for MST algorithms like Kruskal’s and Prim’s, as it justifies the greedy strategy of selecting the smallest weight edges that do not form a cycle, ensuring the spanning tree remains minimal in total weight.
     </p>
+
+    <h2>Recitation Questions</h2>
+        <p><strong>You have already computed a MST on some graph. Increases weight of one of the edges. How do you recompute the MST? (Rerun Kruskal/Prim is not the answer)</strong></p>
+        <p>1. If the edge is not in the MST - done, do nothing.</p>
+        <p>2. If the edge is in the MST - take away the changed edge & now you have 2 connected components, each of them a MST. Find edges that connect the 2 connected components. Pick the minimum edge out of all the "connected edges".</p>
     </div>
 </body>
 </html>
