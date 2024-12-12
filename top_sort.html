@@ -36,7 +36,10 @@
       <p>All DAGs must have an indegree 0 vertex.</p>
 
       <p>Kahn's Algorithm is a straightforward method of topological sorting that works by maintaining a list of nodes with no incoming edges. It repeatedly removes a node from this list, adds it to the sorted order, and removes all outgoing edges from this node. New nodes without incoming edges are then added to the list. This process continues until all nodes are processed or a cycle is detected, indicating that topological sorting is not possible.</p>
-        <p>1. Make an empty indegree array of size \( V \)</p>
+        
+      <br>
+      <h3>Algorithm</h3>
+      <p>1. Make an empty indegree array of size \( V \)</p>
         <p>2. Loop through vertices and increment indegrees wherever an edge is found.</p>
         <p>3. Make a list (LinkedList) of all vertices that have indegree = 0. Call that list <strong>next</strong>.</p>
         <p>4. Make an empty list/array for the final topsort order. Call it <strong>topsort</strong>.</p>
@@ -52,9 +55,12 @@
             }
         }   
         </pre>
-
         <p>Runtime: \( O(V + E) \)</p>
-        <p>Kahn's Algorithm can be used to detect cycles.</p>
+
+        <br>
+
+        <h3>Cycle Detection</h3>
+        <p>Kahn's algorithm detects cycles in a directed graph during topological sorting by relying on in-degrees of vertices. The algorithm repeatedly removes vertices with an in-degree of zero, representing nodes without dependencies, and reduces the in-degrees of their neighbors. If at any step there are no vertices with an in-degree of zero but unprocessed nodes remain, it indicates the presence of a cycle. This is because nodes in a cycle always depend on each other, and thus, their in-degrees can never reach zero. The inability to find a valid topological ordering due to the lack of a starting node with an in-degree of zero confirms the existence of a cycle.</p>
 
       <h2>Tarjan's Algorithm for Topological Sorting</h2>
       <p>Tarjan's Algorithm, while often used to find strongly connected components, can also be adapted for topological sorting. In the context of topological sorting, it operates using a depth-first search approach. It recursively explores each vertex, moving deeper from vertex to vertex. Once it reaches a vertex with no further outgoing unvisited vertices, it adds that vertex to a stack, effectively creating a topological order in reverse as the recursion unwinds.</p>
