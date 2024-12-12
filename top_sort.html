@@ -22,20 +22,53 @@
 </head>
 <body>
     <div class="content">
+    <h1>Topological Sort</h1>
       <h2>Directed Acyclic Graphs (DAGs)</h2>
-      <p>A Directed Acyclic Graph or DAG is a directed graph with no directed cycles. This means that it is impossible to start at any vertex \( v \) and follow a consistently directed sequence of edges that eventually loops back to \( v \) again. DAGs are particularly useful in problems involving scheduling and data processing networks where cycles would imply circular dependencies.</p>
+      <p>A Directed Acyclic Graph (DAG) is a directed graph with no directed cycles. This means that it is impossible to start at any vertex \( v \) and follow a consistently directed sequence of edges that eventually loops back to \( v \) again. DAGs are particularly useful in problems involving scheduling and data processing networks where cycles would imply circular dependencies.</p>
 
       <h2>Topological Sorting</h2>
-      <p>Topological sorting is a linear ordering of vertices of a directed graph such that for every directed edge \( uv \) from vertex \( u \) to vertex \( v \), \( u \) comes before \( v \) in the ordering. This sort of ordering is only possible if the graph has no directed cycles, i.e., the graph is a DAG. Applications of topological sorting include scheduling jobs from the given dependencies among jobs, course scheduling, and more.</p>
+      <p>Topological sorting is a linear ordering of vertices of a directed graph such that for every directed edge \( (u, v) \) from vertex \( u \) to vertex \( v \), \( u \) comes before \( v \) in the ordering. This sort of ordering is only possible if the graph has no directed cycles, i.e., the graph is a DAG.</p>
+      <p>Applications of topological sorting include scheduling jobs from the given dependencies among jobs, course scheduling, and more.</p>
+      <p>Any DAG can have more than one topological sort order.</p>
 
       <h2>Kahn's Algorithm for Topological Sorting</h2>
+      <p>Idea: Safe to start top sorting with a vertex with no incoming edges (indegree of vertex = 0).</p>
+      <p>All DAGs must have an indegree 0 vertex.</p>
+
       <p>Kahn's Algorithm is a straightforward method of topological sorting that works by maintaining a list of nodes with no incoming edges. It repeatedly removes a node from this list, adds it to the sorted order, and removes all outgoing edges from this node. New nodes without incoming edges are then added to the list. This process continues until all nodes are processed or a cycle is detected, indicating that topological sorting is not possible.</p>
+        <p>1. Make an empty indegree array of size \( V \)</p>
+        <p>2. Loop through vertices and increment indegrees wherever an edge is found.</p>
+        <p>3. Make a list (LinkedList) of all vertices that have indegree = 0. Call that list <strong>next</strong>.</p>
+        <p>4. Make an empty list/array for the final topsort order. Call it <strong>topsort</strong>.</p>
+        <p>Main algorithm:</p>
+        <pre>
+        while next is not empty {
+            delete a vertex u from next
+            add u to the end of topsort
+            for each v in adj(u) {
+                indegree[v]--
+                if indegree[v] = 0
+                    insert v into next
+            }
+        }   
+        </pre>
+
+        <p>Runtime: \( O(V + E) \)</p>
+        <p>Kahn's Algorithm can be used to detect cycles.</p>
 
       <h2>Tarjan's Algorithm for Topological Sorting</h2>
       <p>Tarjan's Algorithm, while often used to find strongly connected components, can also be adapted for topological sorting. In the context of topological sorting, it operates using a depth-first search approach. It recursively explores each vertex, moving deeper from vertex to vertex. Once it reaches a vertex with no further outgoing unvisited vertices, it adds that vertex to a stack, effectively creating a topological order in reverse as the recursion unwinds.</p>
-      
+      <p>1. Do DFS (as usual, note all finish times). Can start at any vertex.</p>
+      <p>2. Arrange vertices by <strong>decreasing order of finish time</strong> (this is the topological order).</p>
+      <p>Runtime: \( O(V + E) \)</p>
+
       <h2>Shortest Path in a DAG</h2>
       <p>One of the advantages of DAGs is that they can be used to efficiently solve the shortest path problem. By performing a topological sort on the DAG, we can process each vertex in a linearized order and update the shortest paths to all its adjacent vertices in a straightforward manner. This method is more efficient than the general algorithms for graphs with cycles because it exploits the acyclic property of DAGs, avoiding the need to repeatedly check for updated distances.</p>
+      <h3>Unweighted</h3>
+      <p>BFS</p>
+      <h3>Weighted</h3>
+      <p>Top sort</p>
+      <p>Runtime: \( O(V + E) \)</p>
 
       <h2>Hamiltonian Path</h2>
       <p>A Hamiltonian path is a path in a graph that visits each vertex exactly once. Finding a Hamiltonian path in a general graph is an NP-complete problem, which means it is one of the hardest problems in computational complexity theory, with no known efficient solution for large networks. However, specific types of graphs and additional constraints can sometimes make the problem easier to solve. A Hamiltonian path that starts and ends on the same vertex is called a Hamiltonian cycle.</p>
