@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floyd-Warshall Algorithm</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Load MathJax and configure for proper display of math -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['\\[', '\\]']]
+        },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>
+</head>
+<body>
+    <div class="content">
+        <h1>Floyd-Warshall Algorithm</h1>
+        <h2>Introduction</h2>
+        <p>The Floyd-Warshall Algorithm is a fundamental algorithm for finding the shortest paths between all pairs of nodes in a weighted graph. Unlike Dijkstra's Algorithm, which computes shortest paths from a single source, Floyd-Warshall finds shortest paths between every pair of vertices in the graph. It is capable of handling graphs with both positive and negative edge weights, as long as there are no negative weight cycles.</p>
+
+        <h2>Pseudocode for the Algorithm</h2>
+        <pre>
+            initialize dist matrix with edge weights
+            for k = 1 to n
+                for i = 1 to n
+                    for j = 1 to n
+                        dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])
+        </pre>
+
+        <h2>How It Works</h2>
+        <p>The algorithm systematically examines each vertex as an intermediate point between every pair of vertices. It updates the shortest path distance if using the intermediate vertex results in a shorter path. This process is repeated for all vertices as intermediates, ensuring that by the end, the shortest paths between all pairs of nodes are computed.</p>
+
+        <h2>Runtime Analysis</h2>
+        <p>The Floyd-Warshall Algorithm uses three nested loops, iterating over all pairs of vertices for every intermediate vertex:</p>
+        <p><strong>Runtime:</strong> \( O(V^3) \)</p>
+        <p>Here, \( V \) is the number of vertices in the graph. While the algorithm is less efficient for sparse graphs compared to some other methods, its simplicity and ability to handle negative weights make it a popular choice for dense graphs or small datasets.</p>
+
+        <h2>Handling Negative Weight Cycles</h2>
+        <p>The algorithm detects negative weight cycles by checking the diagonal of the distance matrix. If any \( dist[i][i] \) becomes negative after running the algorithm, the graph contains a negative weight cycle.</p>
+
+        <h2>Comparison to Other Algorithms</h2>
+        <h3>Dijkstra's Algorithm</h3>
+        <p><strong>Scope:</strong> Floyd-Warshall computes all-pairs shortest paths, while Dijkstra focuses on single-source shortest paths.</p>
+        <p><strong>Edge Weights:</strong> Floyd-Warshall can handle negative weights (but no negative cycles), while Dijkstra requires all edge weights to be non-negative.</p>
+
+        <h3>Bellman-Ford Algorithm</h3>
+        <p><strong>Scope:</strong> Bellman-Ford computes single-source shortest paths but also handles negative weights.</p>
+        <p><strong>Runtime:</strong> \( O(VE) \) for Bellman-Ford versus \( O(V^3) \) for Floyd-Warshall.</p>
+
+        <h2>Key Notes</h2>
+        <p>The Floyd-Warshall Algorithm is particularly useful for dense graphs and small datasets where its \( O(V^3) \) runtime is acceptable. It is less suitable for extremely sparse graphs or very large datasets.</p>
+        <p>Graphs with negative weight cycles will cause the algorithm to fail in computing valid shortest paths, as distances can infinitely decrease in such cases.</p>
+    </div>
+</body>
+</html>
